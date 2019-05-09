@@ -11,7 +11,7 @@ void leap_frog_100omegas(float t_inicial, float t_final);
 int main(){
     
     double t_ini=0.0;
-    double t_fin=10.0;
+    double t_fin=15.0;
     
     leap_frog(t_ini, t_fin);
     leap_frog_100omegas(t_ini, t_fin);
@@ -76,9 +76,6 @@ void leap_frog_100omegas(float t_inicial, float t_final){
     
     for(int i=0; i<100; i++){
         
-        U1_max=0;
-        U2_max=0;
-        U3_max=0;
         V1_sig=0;
         V2_sig=0;
         V3_sig=0;
@@ -94,12 +91,6 @@ void leap_frog_100omegas(float t_inicial, float t_final){
             U1_ant=U1_sig;
             U2_ant=U2_sig;
             U3_ant=U3_sig;
-            U1_max=U1_ant;
-            U2_max=U2_ant;
-            U3_max=U3_ant;
-            U1_win[0]=U1_max;
-            U2_win[0]=U2_max;
-            U3_win[0]=U3_max;
                  
             V1_ant= V1_ant-(dt/(2*m))*(sin(t_inicial*varios_omegas[i])+(V1_ant*-gamma)+(U2_ant*k)-(U1_ant*2*k));
             V1_sig= V1_ant+(dt/m)*(sin(t_inicial*varios_omegas[i])+(V1_ant*-gamma)+(U2_ant*k)-(U1_ant*2*k));
@@ -110,26 +101,27 @@ void leap_frog_100omegas(float t_inicial, float t_final){
             V3_ant= V3_ant-(dt/(2*m))*((V3_ant*-gamma)+(U2_ant*k)-(U3_ant*k));
             V3_sig= V3_ant+dt*(1/m)*((V3_ant*-gamma)+(U2_ant*k)-(U3_ant*k));
             U3_sig= U3_ant+(V3_sig*dt);
+
+            t_inicial= t_inicial+dt;
             
             if(abs(U1_sig)>U1_ant){
-                U1_max=U1_sig;
+                U1_win[0]=abs(U1_sig);
             }
             
             if(abs(U2_sig)>U2_ant){
-                U2_max=U2_sig;
+                U2_win[0]=abs(U2_sig);
             }
             
             if(abs(U3_sig)>U3_ant){
-                U3_max=U3_sig;
+                U3_win[0]=abs(U3_sig);
             }
 
             t_inicial= t_inicial+dt;
         }
-        
-        outfile << varios_omegas[i]<<" "<< U1_win[0] <<" "<< U1_win[0] <<" "<< U1_win[0]<<endl;
+    t_inicial=0;   
+    outfile << varios_omegas[i]<<" "<< U1_win[0] <<" "<< U2_win[0] <<" "<< U3_win[0]<<endl;
     }
     
     outfile.close();
                
 }
-
