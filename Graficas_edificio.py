@@ -26,9 +26,9 @@ U3_max=np.genfromtxt("maximo_movimiento.dat",usecols=(3))
 
 
 plt.figure()
-plt.plot(omegas,U1_max, c="cyan", label="primer piso", marker="^")
-plt.plot(omegas,U2_max, c="magenta", label="segundo piso", marker="d")
-plt.plot(omegas,U3_max, c="c", label="tercer piso", marker=".")
+plt.plot(omegas,U1_max, c="cyan", label="primer piso", linewidth=0.7 )
+plt.plot(omegas,U2_max, c="magenta", label="segundo piso", linewidth=0.7)
+plt.plot(omegas,U3_max, c="c", label="tercer piso", linewidth=0.7 )
 plt.xlabel("Omegas")
 plt.ylabel("desplazamiento horizontal")
 plt.title("Max. Desplazamiento hotizontal vs. omegas")
