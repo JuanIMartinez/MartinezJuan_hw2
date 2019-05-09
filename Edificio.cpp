@@ -40,7 +40,7 @@ void leap_frog(float t_inicial, float t_final){
         U2_ant=U2_sig;
         U3_ant=U3_sig;
         
-        outfile << U1_sig <<" "<< U2_sig <<" "<< U3_sig <<" "<< t_inicial <<endl;
+        outfile << t_inicial<<" "<< U1_sig <<" "<< U2_sig <<" "<< U3_sig  <<endl;
         
         V1_ant= V1_ant-(dt/(2*m))*(sin(t_inicial*omega)+(V1_ant*-gamma)+(U2_ant*k)-(U1_ant*2*k));
         V1_sig= V1_ant+(dt/m)*(sin(t_inicial*omega)+(V1_ant*-gamma)+(U2_ant*k)-(U1_ant*2*k));
@@ -126,7 +126,7 @@ void leap_frog_100omegas(float t_inicial, float t_final){
             t_inicial= t_inicial+dt;
         }
         
-        outfile << U1_win[0] <<" "<< U1_win[0] <<" "<< U1_win[0]<<endl;
+        outfile << varios_omegas[i]<<" "<< U1_win[0] <<" "<< U1_win[0] <<" "<< U1_win[0]<<endl;
     }
     
     outfile.close();
