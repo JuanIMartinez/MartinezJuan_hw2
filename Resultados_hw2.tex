@@ -1,0 +1,109 @@
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Formato para los talleres del curso de Métodos Computacionales
+% Universidad de los Andes
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+\documentclass[11pt,letterpaper]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[absolute]{textpos} % Para poner una imagen en posiciones arbitrarias
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+%\decimalpoint
+
+\begin{document}
+\begin{center}
+{\Large Métodos Computacionales} 
+\textsc{Tarea 2}\\
+01-2019\\
+\end{center}
+
+
+\noindent
+\section{Ejercicio 1: Fourier}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{signals.pdf} 
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{TransformadasFourier.pdf}
+\caption{ }
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{Espectrograma.pdf}
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{SignalTemblor.pdf}
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{Fourier_temblor.pdf}
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{Espectrograma_temblor.pdf}
+\caption{}
+\end{center}
+
+Aca podemos notar el hecho de que las señales contienen las mismas frecuencias, simplemente  con una configuración diferente: Signal mustra una onda hasta la mitad del arreglo y luego la otra de forma independiente mientras que SignalSuma muentra la suma de ambas ondas en todo el intervalo\\
+
+
+Los espectogramas permiten descomponer las frecuencias de las ondas que componen una señal ademas de la magnitud o relevancia de la onda . por eso el espectrograma del temblor nos permite afirmar que debido a su apriencia el temblor es debido al movimiento de alguna falla a profundidad y no por procesos magmaticos.\\
+
+\noindent
+\section{Ejercicio 2: Edificio}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{Desplazamiento.pdf} 
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{Desplazamiento_temblor.pdf}
+\caption{}
+\end{center}
+
+
+\begin{center}[H]
+\includegraphics[width=10cm]{resonancia.pdf}
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{resonancia.pdf}
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{Desplazamiento1.pdf}
+\caption{}
+\end{center}
+
+\begin{center}[H]
+\includegraphics[width=10cm]{Desplazamiento2.pdf}
+\caption{}
+\end{center}
+
+La  grafica 7 es congruente con lo que la intuicion nos diria sobre el movimiento de los pisos. el primer piso se mueve de primero, luego el segundo y luego el tercero\\
+
+en la grafica 8 podemos observar que tanto se mueve cada piso en funcion de la frecuencia de oscilacion  del forzamiento, es decir del temblor.esta imagen nos permite afirmar que la frecuencia natural del edificio es de aproximadamente 0.7.
+
+Tiene mucho sentido que la frecuecia natural sea una  baja porque ante un forzaminto con un frecuencia alta el primer piso no alcanaria a dezplazar lo suficiente al segundo antes de que este ya empiece a devolverse. Aun así la grafica no es conluyente ya que la amplitud de cada piso parece aumentar hacia el intervalo no mostrado hacia la izquierda. El fenomeno de resonancia parece repetirse cada 0.9 por lo que la frecuencia de resonancia deberia ser un multiplo de este numero mas un desfase horizontal. \\
+
+A modo de prueba se considero un coeficiente de friccion (gamma)  muy alto para comprobar que el sistema deberia dejar de comportarse como un sistema unido por resortes y pasar a comportarse como una sola estructura.
+
+
+
+\end{documrent}

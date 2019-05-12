@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pylab as plt
 
+
 ### se almacenan los datos de signal.dat y signalSuma.dat.
 
 ##signal.dat
@@ -66,30 +67,30 @@ fourier_signalSuma=transformada_fourier(signal_suma)
 
 
 len_signal=len(signal)
-fftfreq_signal_plot=dt/len(signal)*np.linspace(0,len(signal),len(signal)) ##IMPLEMENTACION QUE REEMPLAZA FFTFREQ
+fftfreq_signal_plot=np.fft.fftfreq(len_signal,dt)
+
+#fftfreq_signal_plot=1/(dt*len(signal))*np.linspace(0,len(signal),len(signal)) ##IMPLEMENTACION QUE REEMPLAZA FFTFREQ
 
 
 
 len_signalSuma=len(signal_suma)
-fftfreq_signalSuma_plot=dt/len(signal_suma)*np.linspace(0,len(signal_suma),len(signal_suma)) ##IMPLEMENTACION QUE REEMPLAZA FFTFREQ
+fftfreq_signalSuma_plot=np.fft.fftfreq(len_signalSuma,dt_suma)
+#fftfreq_signalSuma_plot=1/(dt*len(signal_suma))*np.linspace(0,len(signal_suma),len(signal_suma)) ##IMPLEMENTACION QUE REEMPLAZA FFTFREQ
 
 
 
 plt.figure()
-plt.subplot(2,1,1)
-plt.title('Transformada Fourier de SignalSuma y Signal')
 plt.plot(fftfreq_signalSuma_plot,fourier_signalSuma,c="skyblue",label = "T. SignalSuma", linewidth=0.7)
-plt.ylabel("T. SignalSuma")
-plt.grid()
-plt.legend()
-plt.subplot(2,1,2)
 plt.plot(fftfreq_signal_plot,fourier_signal,c="tomato",label = "T. Signal", linewidth=0.7)
 plt.ylabel("T. Signal")
+plt.title('Transformada Fourier de SignalSuma y Signal')
 plt.xlabel("Frecuencia")
 plt.grid()
 plt.legend()
 plt.savefig("TransformadasFourier.pdf")
 plt.close()
+
+
 
 
 ##espectogramas
@@ -104,7 +105,7 @@ plt.subplot(2,1,2)
 plt.specgram(signal, NFFT=256*2, Fs=dt)
 plt.colorbar()
 plt.grid()
-plt.savefig("Espectograma.pdf")
+plt.savefig("Espectrograma.pdf")
 plt.close()
 
 print("SE UTILIZO UNA IMPLEMENTACION PROPIA PARA REEMPLAZAR FFTFREQ")
@@ -151,5 +152,5 @@ plt.title('Transformada Fourier de SignalSuma y Signal')
 plt.specgram(temblor, NFFT=256, Fs=dt_temblor)
 plt.colorbar()
 plt.grid()
-plt.savefig("Espectograma_temblor.pdf")
+plt.savefig("Espectrograma_temblor.pdf")
 plt.close()
